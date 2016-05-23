@@ -25,7 +25,7 @@ const OddClient = require('oddworks-javascript-sdk');
 const client = new OddClient({jwt: 'YOUR JWT HERE'});
 
 client
-  .getVides()
+  .getVideos()
   .then(videos => {
     console.log(videos);
   })
