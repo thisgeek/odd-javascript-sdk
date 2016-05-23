@@ -1,0 +1,39 @@
+{
+  "name": "oddworks-javascript-sdk",
+  "version": "1.0.0",
+  "description": "The Odd JS SDK for Node and the browser.",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "xo && ava --verbose",
+    "lint": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oddnetworks/oddworks-javascript-sdk.git"
+  },
+  "author": "Blain Smith <rebelgeek@blainsmith.com> (http://blainsmith.com/)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/oddnetworks/oddworks-javascript-sdk/issues"
+  },
+  "homepage": "https://github.com/oddnetworks/oddworks-javascript-sdk#readme",
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "browserify": "^13.0.1",
+    "xo": "^0.14.0"
+  },
+  "dependencies": {
+    "ampersand-model": "^7.0.0",
+    "bluebird": "^3.4.0",
+    "got": "^6.3.0",
+    "superagent": "^1.8.3",
+    "superagent-prefix": "0.0.2"
+  },
+  "xo": {
+    "envs": [
+      "node",
+      "browser",
+      "commonjs"
+    ]
+  }
+}
