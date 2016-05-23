@@ -1,5 +1,7 @@
 # JavaScript SDK for Oddworks
 
+![oddworks-javascript-sdk](https://cloud.githubusercontent.com/assets/483829/15481904/ef21b22a-20fa-11e6-862b-181d0a7e97cc.png)
+
 An [Oddworks](https://github.com/oddnetworks/oddworks) client SDK for [Node.js](http://nodejs.org) and the browser. Check out [Odd Networks](https://www.oddnetworks.com/) for more information.
 
 [![slack.oddnetworks.com](http://slack.oddnetworks.com/badge.svg)](http://slack.oddnetworks.com)
