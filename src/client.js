@@ -41,24 +41,22 @@ Client.prototype.addVideoListeners = function () {
 	this.userId = this.options.userId || localStorage.getItem('odd-user-id') || uuid.v4();
 	localStorage.setItem('odd-user-id', this.userId);
 
-	var allVideos = document.getElementsByTagName('video');
-	for (var index = 0; index < allVideos.length; index++) { // for-loop since its not an array, but a NodeList
-		var video = allVideos[index];
+	var allVideos = Array.prototype.slice.call(document.getElementsByTagName('video'));
+	allVideos.forEach(function (video, index) {
 		var oddId = video.getAttribute('data-odd-id');
 		if (oddId) {
 			_addVideoListeners(video, this.userId);
 		} else {
 			delete allVideos[index];
 		}
-	}
+	}.bind(this));
 
 	window.addEventListener('beforeunload', function () {
-		for (var index = 0; index < allVideos.length; index++) { // for-loop since its not an array, but a NodeList
-			var video = allVideos[index];
+		allVideos.forEach(function (video) {
 			var id = video.getAttribute('data-odd-id');
 			console.log(this.userId, id, video.currentTime);
-		}
-	}.bind(this));
+		}.bind(this));
+	});
 };
 
 function _addVideoListeners(video, userId) {
