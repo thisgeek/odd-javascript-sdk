@@ -4,6 +4,8 @@
   "description": "The Odd JS SDK for Node and the browser.",
   "main": "src/main.js",
   "scripts": {
+    "build": "browserify src/main.js -o build/oddworks-javascript-sdk.js",
+    "dev": "watchify src/main.js -o build/oddworks-javascript-sdk.js",
     "test": "xo && ava --verbose",
     "lint": "xo"
   },
@@ -20,6 +22,7 @@
   "devDependencies": {
     "ava": "^0.14.0",
     "browserify": "^13.0.1",
+    "watchify": "^3.7.0",
     "xo": "^0.14.0"
   },
   "dependencies": {
