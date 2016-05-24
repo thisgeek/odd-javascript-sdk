@@ -40,4 +40,4 @@ data/**/*.DELETE
 api.iml
 
 #custom
-build/*.js
+dist/*.js

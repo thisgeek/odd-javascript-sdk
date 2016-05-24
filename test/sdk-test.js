@@ -1,18 +1,20 @@
-import test from 'ava';
+var test = require('tape');
 
-import OddClient from '..';
+var OddClient = require('..');
 
-test('fails initialization with no JWT', t => {
-	t.throws(() => {
-		const client = new OddClient();
+test('fails initialization with no JWT', function (t) {
+	t.throws(function () {
+		var client = new OddClient();
 		client.getVideos();
 	});
+	t.end();
 });
 
-test('attaches getters for each type', t => {
-	const client = new OddClient({jwt: 'my-token'});
+test('attaches getters for each type', function (t) {
+	var client = new OddClient({jwt: 'my-token'});
 
-	t.truthy(client.getVideos);
-	t.truthy(client.getCollections);
-	t.truthy(client.getViews);
+	t.ok(client.getVideos);
+	t.ok(client.getCollections);
+	t.ok(client.getViews);
+	t.end();
 });

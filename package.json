@@ -6,7 +6,9 @@
   "scripts": {
     "build": "browserify src/main.js -o build/oddworks-javascript-sdk.js",
     "dev": "watchify src/main.js -o build/oddworks-javascript-sdk.js",
-    "test": "xo && ava --verbose",
+    "test": "xo && npm run test-node && npm run test-browser",
+    "test-node": "tape test/*.js test/node/*.js",
+    "test-browser": "browserify test/*.js test/browser/*.js | tape-run",
     "lint": "xo"
   },
   "repository": {
@@ -22,6 +24,8 @@
   "devDependencies": {
     "ava": "^0.14.0",
     "browserify": "^13.0.1",
+    "phantomjs": "^2.1.7",
+    "tape": "^4.5.1",
     "watchify": "^3.7.0",
     "xo": "^0.14.0"
   },
