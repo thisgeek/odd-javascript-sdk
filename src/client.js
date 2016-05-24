@@ -40,8 +40,10 @@ TYPES.forEach(function (type) {
 });
 
 Client.prototype.addVideoListeners = function () {
-	this.userId = this.options.userId || localStorage.getItem('odd-user-id') || uuid.v4();
-	localStorage.setItem('odd-user-id', this.userId);
+	if (isNode()) {
+		throw new Error('addVideoListeners() not implemented for Node.js');
+	}
+
 	this.userId = this.options.userId || localStorage.getItem(LOCAL_STORAGE_USER_KEY) || uuid.v4();
 	localStorage.setItem(LOCAL_STORAGE_USER_KEY, this.userId);
 
@@ -81,4 +83,8 @@ function addVideoListeners(video, userId) {
 	video.addEventListener('pause', function () {
 		console.log(userId, id, 'pause', video.currentTime);
 	}, true);
+}
+
+function isNode() {
+	return (typeof window === 'undefined');
 }
