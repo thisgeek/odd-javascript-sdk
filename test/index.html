@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Odd JavaScript SDK</title>
+	</head>
+	<body>
+		<h1>111</h1>
+		<video data-odd-id="111" controls="true">
+			<source src="http://player.ooyala.com/player/appletv/J4aWVyMDE61ZAIad5pqKUTabYxMh8iZb.m3u8" type="application/x-mpegURL" />
+			<source src="https://archive.org/download/WebmVp8Vorbis/webmvp8_512kb.mp4" type="video/mp4" />
+		  <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.ogv" type="video/ogg" />
+		  <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.webm" type="video/webm" />
+		</video>
+
+		<h1>222</h1>
+		<video data-odd-id="222" controls="true">
+			<source src="http://player.ooyala.com/player/appletv/J4aWVyMDE61ZAIad5pqKUTabYxMh8iZb.m3u8" type="application/x-mpegURL" />
+			<source src="https://archive.org/download/WebmVp8Vorbis/webmvp8_512kb.mp4" type="video/mp4" />
+		  <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.ogv" type="video/ogg" />
+		  <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.webm" type="video/webm" />
+		</video>
+
+		<h1>333</h1>
+		<video data-odd-id="333" controls="true">
+			<source src="http://player.ooyala.com/player/appletv/J4aWVyMDE61ZAIad5pqKUTabYxMh8iZb.m3u8" type="application/x-mpegURL" />
+			<source src="https://archive.org/download/WebmVp8Vorbis/webmvp8_512kb.mp4" type="video/mp4" />
+		  <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.ogv" type="video/ogg" />
+		  <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.webm" type="video/webm" />
+		</video>
+
+		<script src="../build/oddworks-javascript-sdk.js"></script>
+		<script>
+			var client = new OddClient({jwt: 'my-jwt'});
+			client.addVideoListeners();
+		</script>
+	</body>
+</html>
