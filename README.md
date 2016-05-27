@@ -2,9 +2,10 @@
 
 ![oddworks-javascript-sdk](https://cloud.githubusercontent.com/assets/483829/15481904/ef21b22a-20fa-11e6-862b-181d0a7e97cc.png)
 
-An [Oddworks](https://github.com/oddnetworks/oddworks) client SDK for [Node.js](http://nodejs.org) and the browser. Check out [Odd Networks](https://www.oddnetworks.com/) for more information.
-
+[![Build Status](https://travis-ci.org/oddnetworks/odd-javascript-sdk.svg?branch=master)](https://travis-ci.org/oddnetworks/odd-javascript-sdk)
 [![slack.oddnetworks.com](http://slack.oddnetworks.com/badge.svg)](http://slack.oddnetworks.com)
+
+An [Oddworks](https://github.com/oddnetworks/oddworks) client SDK for [Node.js](http://nodejs.org) and the browser. Check out [Odd Networks](https://www.oddnetworks.com/) for more information.
 
 * Create a new streaming app on the web.
 * Augment your existing website or Node.js app with video streaming content from [Oddworks](https://github.com/oddnetworks/oddworks).
@@ -34,6 +35,18 @@ client
   .catch(err => {
     console.error(err);
   });
+```
+
+## Development
+
+- [XO](https://www.npmjs.com/package/xo) for linting
+- [tape](https://www.npmjs.com/package/tape) for unit testing
+- [tape-run](https://www.npmjs.com/package/tape-run) for headless browser testing
+- [Browserify](https://www.npmjs.com/package/browserify) for front-end bundling
+
+```
+$ npm install
+$ npm test
 ```
 
 ## Community
