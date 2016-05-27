@@ -1,9 +1,8 @@
 var Promise = require('bluebird');
 var superagent = require('superagent');
-var superagentPrefix = require('superagent-prefix');
 var uuid = require('uuid');
 
-var ENDPOINT = 'http://oddworks.io';
+var ENDPOINT = 'http://oddworks.io/';
 var JWT_HEADER = 'x-access-token';
 var TYPES = ['videos', 'collections', 'views'];
 var DATA_ATTR = 'data-odd-id';
@@ -24,20 +23,35 @@ TYPES.forEach(function (type) {
 	Client.prototype['get' + type.charAt(0).toUpperCase() + type.slice(1)] = function (id) {
 		return new Promise(function (resolve, reject) {
 			superagent
-				.get('/' + type + ((id) ? '/' + id : ''))
-				.use(superagentPrefix(this.options.endpoint || ENDPOINT))
-				.set(this.options.endpoint || JWT_HEADER, this.options.jwt)
+				.get((this.options.endpoint || ENDPOINT) + type + ((id) ? '/' + id : ''))
+				.set(JWT_HEADER, this.options.jwt)
 				.set('Accept', 'application/json')
 				.end(function (err, res) {
 					if (err) {
 						return reject(err);
 					}
 
-					resolve(res);
+					resolve(res.body, res);
 				});
-		});
+		}.bind(this));
 	};
 });
+
+Client.prototype.getConfig = function () {
+	return new Promise((resolve, reject) => {
+		superagent
+			.get((this.options.endpoint || ENDPOINT) + 'config')
+			.set(JWT_HEADER, this.options.jwt)
+			.set('Accept', 'application/json')
+			.end(function (err, res) {
+				if (err) {
+					return reject(err);
+				}
+
+				resolve(res.body, res);
+			});
+	});
+};
 
 Client.prototype.addVideoListeners = function () {
 	if (isNode()) {

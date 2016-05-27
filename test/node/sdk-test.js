@@ -1,6 +1,11 @@
 var test = require('tape');
 
-test('node test', function (t) {
-	t.ok(1);
+var OddClient = require('../..');
+
+test('addVideoListeners() throws Error', function (t) {
+	t.throws(function () {
+		var client = new OddClient({jwt: 'test'});
+		client.addVideoListeners();
+	});
 	t.end();
 });

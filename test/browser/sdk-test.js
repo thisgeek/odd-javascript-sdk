@@ -1,6 +1,11 @@
 var test = require('tape');
 
-test('browser test', function (t) {
-	t.ok(1);
+var OddClient = require('../..');
+
+test('addVideoListeners() doesn\'t throw Error', function (t) {
+	t.doesNotThrow(function () {
+		var client = new OddClient({jwt: 'test'});
+		client.addVideoListeners();
+	});
 	t.end();
 });
