@@ -6,7 +6,7 @@
   "scripts": {
     "build": "browserify src/main.js -o build/oddworks-javascript-sdk.js",
     "dev": "watchify src/main.js -o build/oddworks-javascript-sdk.js",
-    "test": "npm run test-node && npm run test-browser",
+    "test": "xo && npm run test-node && npm run test-browser",
     "test-node": "NODE_ENV=test-node tape test/*.js test/node/*.js | tap-spec",
     "test-browser": "NODE_ENV=test-browser browserify test/*.js test/browser/*.js | tape-run | tap-spec",
     "lint": "xo"
