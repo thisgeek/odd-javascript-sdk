@@ -17,13 +17,13 @@ Support for Node.js, Browserify, and Webpack.
 ## Installing
 
 ```
-$ npm install --save oddworks-javascript-sdk
+$ npm install --save odd-javascript-sdk
 ```
 
 ## Using
 
 ```js
-const OddClient = require('oddworks-javascript-sdk');
+const OddClient = require('odd-javascript-sdk');
 const client = new OddClient({jwt: 'YOUR JWT HERE'});
 
 client

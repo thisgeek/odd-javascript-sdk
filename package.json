@@ -1,5 +1,5 @@
 {
-  "name": "oddworks-javascript-sdk",
+  "name": "odd-javascript-sdk",
   "version": "1.0.0",
   "description": "The Odd JS SDK for Node and the browser.",
   "main": "src/main.js",
@@ -41,6 +41,9 @@
       "node",
       "browser",
       "commonjs"
+    ],
+    "globals": [
+      "Odd"
     ]
   }
 }

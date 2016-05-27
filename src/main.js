@@ -2,7 +2,8 @@
 	var Client = require('./client');
 
 	if (typeof window !== 'undefined') {
-		window.OddClient = window.OddClient || Client;
+		window.Odd = window.Odd || {};
+		window.Odd.Client = window.Odd.Client || Client;
 	}
 
 	if (typeof module !== 'undefined') {
