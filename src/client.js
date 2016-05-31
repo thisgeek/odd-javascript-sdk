@@ -1,3 +1,4 @@
+var LRUCache = require('tiny-lru-cache');
 var Promise = require('bluebird');
 var superagent = require('superagent');
 var uuid = require('uuid');
@@ -15,6 +16,8 @@ function Client(options) {
 		throw new Error('options.jwt is required');
 	}
 
+	this.cache = new LRUCache(this.options.cacheSize || 100);
+
 	return this;
 }
 module.exports = Client;
@@ -22,8 +25,15 @@ module.exports = Client;
 TYPES.forEach(function (type) {
 	Client.prototype['get' + type.charAt(0).toUpperCase() + type.slice(1)] = function (id) {
 		return new Promise(function (resolve, reject) {
+			var url = (this.options.endpoint || ENDPOINT) + type + ((id) ? '/' + id : '');
+			var resource = this.cache.get(url);
+
+			if (resource) {
+				return resolve(resource.body, resource.res);
+			}
+
 			superagent
-				.get((this.options.endpoint || ENDPOINT) + type + ((id) ? '/' + id : ''))
+				.get(url)
 				.set(JWT_HEADER, this.options.jwt)
 				.set('Accept', 'application/json')
 				.end(function (err, res) {
@@ -31,6 +41,7 @@ TYPES.forEach(function (type) {
 						return reject(err);
 					}
 
+					this.cache.set(url, {body: res.body, res: res});
 					resolve(res.body, res);
 				});
 		}.bind(this));
