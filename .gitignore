@@ -38,6 +38,3 @@ data/**/*.DELETE
 
 #intellij
 api.iml
-
-#custom
-dist/*.js
