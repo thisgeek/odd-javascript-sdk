@@ -27,9 +27,9 @@
 		  <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.webm" type="video/webm" />
 		</video>
 
-		<script src="../build/oddworks-javascript-sdk.js"></script>
+		<script src="../dist/odd-javascript-sdk.js"></script>
 		<script>
-			var client = new OddClient({jwt: 'my-jwt'});
+			var client = new Odd.Client({jwt: 'my-jwt'});
 			client.addVideoListeners();
 		</script>
 	</body>
